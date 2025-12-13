@@ -6,7 +6,15 @@
 ## **1. Introduction**
 Power outages disrupt communities, strain infrastructure, and slow economic activity across the United States. While extreme weather and equipment failures are well-known triggers, not every state experiences outages with the same severity. This raises an important question: **do states with stronger economies recover from outages more quickly than those with weaker economies?**
 
-This project explores that question by analyzing **1,534 major U.S. power outage events** recorded from **2000 to 2016**. The dataset provides information on outage duration, customers affected, causes, climate regions, and key economic indicators—including *per-capita real gross state product (PC.REALGSP.STATE)*. By combining outage characteristics with economic strength, this project examines why some outages escalate into major disruptions while others remain contained.
+This project explores that question by analyzing **1,534 major U.S. power outage events** recorded from **2000 to 2016**. 
+The cleaned dataset contains 1,534 rows, each representing a major power outage event. The primary columns relevant to this analysis include:
+- OUTAGE.DURATION: total outage duration in hours
+- CUSTOMERS.AFFECTED: number of customers impacted
+- PC.REALGSP.STATE: per-capita real gross state product
+- CAUSE.CATEGORY: primary cause of the outage
+- CLIMATE.REGION: regional climate classification
+- STATE: U.S. state in which the outage occurred
+
 
 Two primary measures define outage severity:
 
