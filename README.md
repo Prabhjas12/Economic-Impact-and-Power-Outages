@@ -150,9 +150,9 @@ To improve upon the baseline model, I trained a more flexible final model using 
 
 In addition to the baseline features, I engineered two new predictors. First, I applied a log transformation to the per-capita real gross state product to reduce skew and emphasize relative economic differences between states. Second, I incorporated climate region as a categorical feature, providing environmental context that may influence infrastructure vulnerability and outage severity.
 
-All preprocessing and modeling steps were implemented within a single `sklearn` Pipeline to prevent data leakage and ensure reproducibility. I tuned key hyperparameters—including the number of trees, maximum tree depth, and minimum leaf size—using `GridSearchCV`, with F1-score as the evaluation metric. The best-performing model used 300 trees, a maximum tree depth of 10, and a minimum leaf size of 5.
+All preprocessing and modeling steps were implemented within a single `sklearn` Pipeline to prevent data leakage and ensure reproducibility. I tuned key hyperparameters, including the number of trees, maximum tree depth, and minimum leaf size using `GridSearchCV`, with F1-score as the evaluation metric. The best-performing model used 300 trees, a maximum tree depth of 10, and a minimum leaf size of 5.
 
-The final model achieves a higher F1-score on the same held-out test set used for the baseline model, indicating improved performance in identifying high-severity outages. This improvement suggests that outage severity is influenced by complex, nonlinear interactions between economic conditions, climate, and outage characteristics—relationships that arise naturally from how infrastructure resilience, environmental stress, and economic capacity jointly shape outage outcomes and are not fully captured by linear models.
+The final model achieves a higher F1-score on the same held-out test set used for the baseline model, indicating improved performance in identifying high-severity outages. This improvement suggests that outage severity is influenced by complex, nonlinear interactions between economic conditions, climate, and outage characteristics, relationships that arise naturally from how infrastructure resilience, environmental stress, and economic capacity jointly shape outage outcomes and are not fully captured by linear models.
 
 
 ---
