@@ -62,6 +62,30 @@ In contrast, the missingness of outage duration does not appear to depend on the
 
 ## **4. Hypothesis Testing**
 
+To evaluate whether economic conditions are associated with outage severity, I conducted two permutation-based hypothesis tests comparing low-GDP and high-GDP states. In both tests, the difference in means was used as the test statistic, and a significance level of α = 0.05 was chosen.
+
+### Outage Duration
+
+The observed difference in mean outage duration between low-GDP and high-GDP states was approximately 387 hours, with outages in lower-GDP states lasting longer on average. However, the permutation test resulted in a p-value of 0.181, indicating that this difference is not statistically significant. Therefore, there is insufficient evidence to conclude that outage duration differs systematically based on state economic output.
+
+<iframe
+  src="assets/hypothesis_duration.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Customers Affected
+
+The observed difference in mean customers affected was approximately −12,131, suggesting that outages in higher-GDP states may affect more customers. However, the permutation test yielded a p-value of 0.682, providing strong evidence that such a difference could occur by chance alone. As a result, there is no statistical evidence that customer impact differs by economic tier.
+
+<iframe
+  src="assets/hypothesis_customers.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ---
 
 ## **5. Framing a Prediction Problem**
