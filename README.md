@@ -77,10 +77,15 @@ To summarize broader trends, I computed the average outage duration and average 
 ## **3. Assessment of Missingness**
 To assess whether outage duration is missing at random, I analyzed the dependency of its missingness on other variables using permutation tests.
 
-The missingness of `OUTAGE.DURATION` appears to depend on state-level economic output (`PC.REALGSP.STATE`). A permutation test comparing mean per-capita GSP between outages with missing and non-missing duration values produced a statistically significant result, suggesting that this missingness mechanism is MAR rather than MCAR.
+I believe that OUTAGE.DURATION may be NMAR, because outages that are extremely long or politically sensitive may be less likely to have complete reporting. Additional data such as utility reporting policies or regulatory oversight levels could help explain this missingness and potentially render it MAR.
 
 In contrast, the missingness of outage duration does not appear to depend on the month in which the outage occurred. A permutation test comparing months showed no significant difference, providing evidence that missingness is independent of seasonal timing.
 
+<iframe 
+  src="assets/duration_missing_vs_gsp.html" 
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
 
 ---
 
@@ -93,7 +98,7 @@ To evaluate whether economic conditions are associated with outage severity, I c
 The observed difference in mean outage duration between low-GDP and high-GDP states was approximately 387 hours, with outages in lower-GDP states lasting longer on average. However, the permutation test resulted in a p-value of 0.181, indicating that this difference is not statistically significant. Therefore, there is insufficient evidence to conclude that outage duration differs systematically based on state economic output.
 
 <iframe
-  src="assets/hypothesis_duration.html"
+  src="assets/hypothesis1_duration.html"
   width="800"
   height="600"
   frameborder="0"
@@ -104,7 +109,7 @@ The observed difference in mean outage duration between low-GDP and high-GDP sta
 The observed difference in mean customers affected was approximately −12,131, suggesting that outages in higher-GDP states may affect more customers. However, the permutation test yielded a p-value of 0.682, providing strong evidence that such a difference could occur by chance alone. As a result, there is no statistical evidence that customer impact differs by economic tier.
 
 <iframe
-  src="assets/hypothesis_customers.html"
+  src="assets/hypothesis2_customers.html"
   width="800"
   height="600"
   frameborder="0"
