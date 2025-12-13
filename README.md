@@ -116,6 +116,14 @@ However, this model still serves as a baseline because it uses a limited set of 
 
 ## **7. Final Model**
 
+To improve upon the baseline model, I trained a more flexible final model using a Random Forest classifier. Unlike linear models, Random Forests can capture nonlinear relationships and interactions between features, making them well-suited for modeling complex systems such as power grid failures.
+
+In addition to the baseline features, I engineered two new predictors. First, I applied a log transformation to the per-capita real gross state product to reduce skew and emphasize relative economic differences between states. Second, I incorporated climate region as a categorical feature, providing environmental context that may influence infrastructure vulnerability and outage severity.
+
+All preprocessing and modeling steps were implemented within a single `sklearn` Pipeline to prevent data leakage and ensure reproducibility. I tuned key hyperparameters—including the number of trees, maximum tree depth, and minimum leaf size—using `GridSearchCV`, with F1-score as the evaluation metric.
+
+The final model achieves a higher F1-score on the same held-out test set used for the baseline model, indicating improved performance in identifying high-severity outages. This improvement suggests that outage severity is influenced by complex, nonlinear interactions between economic conditions, climate, and outage characteristics that are not fully captured by simpler models.
+
 ---
 
 ## **8. Fairness Analysis**
