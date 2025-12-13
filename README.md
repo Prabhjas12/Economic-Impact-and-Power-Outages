@@ -51,6 +51,12 @@ To summarize broader trends, I computed the average outage duration and average 
 ---
 
 ## **3. Assessment of Missingness**
+To assess whether outage duration is missing at random, I analyzed the dependency of its missingness on other variables using permutation tests.
+
+The missingness of `OUTAGE.DURATION` appears to depend on state-level economic output (`PC.REALGSP.STATE`). A permutation test comparing mean per-capita GSP between outages with missing and non-missing duration values produced a statistically significant result, suggesting that this missingness mechanism is MAR rather than MCAR.
+
+In contrast, the missingness of outage duration does not appear to depend on the month in which the outage occurred. A permutation test comparing months showed no significant difference, providing evidence that missingness is independent of seasonal timing.
+
 
 ---
 
