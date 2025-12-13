@@ -1,5 +1,5 @@
 # Power Outages and Economic Strength in the United States  
-### An Analysis of Outage Severity, Economic Indicators, and Structural Vulnerability (2000–2016)
+### An Analysis of Outage Severity, Economic Indicators, and Structural Vulnerability
 
 ---
 
