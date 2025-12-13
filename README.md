@@ -128,7 +128,7 @@ The response variable is a binary indicator of outage severity:
 - Severe outage: affects more than 10,000 customers  
 - Non-severe outage: affects 10,000 or fewer customers  
 
-Model performance is evaluated using **F1-score**, which balances precision and recall. This metric is more appropriate than accuracy because severe outages are relatively rare, and both false positives and false negatives carry meaningful consequences for planning and response.
+Model performance is evaluated using **F1-score**, which balances precision and recall. This metric is more appropriate than accuracy because severe outages are relatively rare, and both false positives and false negatives carry meaningful consequences for planning and response. F1-score was chosen over accuracy because severe outages are relatively rare, and accuracy would be dominated by the majority non-severe class.
 
 Only features that would be known at the start of an outage are used for prediction. These include economic indicators, geographic information, climate region, and outage cause. Variables that describe the outcome of the outage itself are intentionally excluded to ensure a realistic and fair prediction setup.
 
@@ -136,8 +136,9 @@ Only features that would be known at the start of an outage are used for predict
 ---
 
 ## **6. Baseline Model**
+The baseline model is a logistic regression classifier trained using the following features known at the time of prediction, per-capita GSP (quantitative), outage cause (nominal), climate region (nominal), and state economic quartile (ordinal). Nominal features were one-hot encoded, while quantitative features were standardized.
 
-The baseline logistic regression model performs surprisingly well, achieving a high F1-score on unseen data. The model is particularly effective at identifying severe outages, with both high precision and recall. This strong performance suggests that key predictors such as outage cause and state-level economic indicators already contain substantial information about outage severity.
+The model performs surprisingly well, achieving a high F1-score of **0.98** on unseen data. The model is particularly effective at identifying severe outages, with both high precision and recall. This strong performance suggests that key predictors such as outage cause and state-level economic indicators already contain substantial information about outage severity.
 
 However, this model still serves as a baseline because it uses a limited set of features and assumes a linear relationship between predictors and the outcome. In the final model, I explore whether additional feature engineering and more flexible modeling approaches can further improve performance and provide more robust predictions.
 
@@ -149,9 +150,10 @@ To improve upon the baseline model, I trained a more flexible final model using 
 
 In addition to the baseline features, I engineered two new predictors. First, I applied a log transformation to the per-capita real gross state product to reduce skew and emphasize relative economic differences between states. Second, I incorporated climate region as a categorical feature, providing environmental context that may influence infrastructure vulnerability and outage severity.
 
-All preprocessing and modeling steps were implemented within a single `sklearn` Pipeline to prevent data leakage and ensure reproducibility. I tuned key hyperparameters—including the number of trees, maximum tree depth, and minimum leaf size—using `GridSearchCV`, with F1-score as the evaluation metric.
+All preprocessing and modeling steps were implemented within a single `sklearn` Pipeline to prevent data leakage and ensure reproducibility. I tuned key hyperparameters—including the number of trees, maximum tree depth, and minimum leaf size—using `GridSearchCV`, with F1-score as the evaluation metric. The best-performing model used 300 trees, a maximum tree depth of 10, and a minimum leaf size of 5.
 
-The final model achieves a higher F1-score on the same held-out test set used for the baseline model, indicating improved performance in identifying high-severity outages. This improvement suggests that outage severity is influenced by complex, nonlinear interactions between economic conditions, climate, and outage characteristics that are not fully captured by simpler models.
+The final model achieves a higher F1-score on the same held-out test set used for the baseline model, indicating improved performance in identifying high-severity outages. This improvement suggests that outage severity is influenced by complex, nonlinear interactions between economic conditions, climate, and outage characteristics—relationships that arise naturally from how infrastructure resilience, environmental stress, and economic capacity jointly shape outage outcomes and are not fully captured by linear models.
+
 
 ---
 
@@ -163,7 +165,6 @@ The evaluation metric for this analysis was precision for predicting high-severi
 
 A permutation test was used to compare the difference in precision between the two groups. At a significance level of α = 0.05, the resulting p-value indicates that the observed difference in precision is consistent with random variation. As a result, there is insufficient evidence to conclude that the model performs worse for outages in low-income states.
 
-This analysis suggests that, with respect to precision, the model does not exhibit a statistically significant fairness disparity across economic groups. However, this result does not guarantee complete fairness, and additional metrics or alternative group definitions could be explored in future work.
 
 <iframe
   src="assets/fairness_precision_test.html"
@@ -173,3 +174,8 @@ This analysis suggests that, with respect to precision, the model does not exhib
 ></iframe>
 
 ---
+
+## **Conclusion**
+
+This project examined how economic conditions relate to power outage severity across U.S. states. While lower-income states tended to experience longer outages on average, these differences were not statistically significant. A predictive model demonstrated strong performance in identifying high-severity outages using information available at the onset of an event, without exhibiting measurable fairness disparities across economic groups. Together, these findings highlight the complexity of outage dynamics and the importance of considering both structural and environmental factors when planning for grid resilience.
+
