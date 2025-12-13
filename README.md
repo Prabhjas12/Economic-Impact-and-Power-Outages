@@ -108,6 +108,10 @@ Only features that would be known at the start of an outage are used for predict
 
 ## **6. Baseline Model**
 
+The baseline logistic regression model performs surprisingly well, achieving a high F1-score on unseen data. The model is particularly effective at identifying severe outages, with both high precision and recall. This strong performance suggests that key predictors such as outage cause and state-level economic indicators already contain substantial information about outage severity.
+
+However, this model still serves as a baseline because it uses a limited set of features and assumes a linear relationship between predictors and the outcome. In the final model, I explore whether additional feature engineering and more flexible modeling approaches can further improve performance and provide more robust predictions.
+
 ---
 
 ## **7. Final Model**
