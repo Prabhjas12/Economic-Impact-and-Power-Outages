@@ -14,12 +14,32 @@ Two primary measures define outage severity:
 - **Customers Affected** — the scale of the impact across households and businesses  
 
 ### **Guiding Question**
+
 **Do states with lower per-capita economic output experience longer and more severe power outages?**
 
 Investigating this relationship helps reveal how economic conditions, infrastructure investment, and public policy shape the resiliency of the power grid. Understanding these structural patterns is essential for improving disaster response, infrastructure planning, and community preparedness.
+
 ---
 
 ## **2. Data Cleaning and Exploratory Data Analysis**
+
+Before conducting any analysis, I cleaned the dataset to convert all numerical values stored as strings into proper numeric types, and I parsed all date columns into datetime format. In cases where the dataset did not provide an outage duration, I computed it manually using the start and restoration timestamps. I also created an economic tier variable that groups states into quartiles based on their per-capita real gross state product. These cleaning steps ensure that the analyses and visualizations reflect meaningful relationships in the data.
+
+### Univariate Analysis
+
+The distribution of outage duration shows a heavy right-skew: most outages are relatively short, but a small number last for extremely long periods. This behavior is typical for extreme events.
+
+*(Embed your Plotly histogram iframe here)*
+
+### Bivariate Analysis
+
+To explore the relationship between economic conditions and outage severity, I visualized how outage duration and customers affected vary with state economic output. While the relationship is noisy, higher-income states tend to experience slightly less severe outages.
+
+*(Embed your Plotly scatter or boxplot iframe here)*
+
+### Interesting Aggregates
+
+To summarize broader trends, I computed the average outage duration and average customers affected for each economic quartile. These aggregated statistics highlight systematic differences that motivate the hypothesis testing that follows.
 
 ---
 
@@ -28,6 +48,7 @@ Investigating this relationship helps reveal how economic conditions, infrastruc
 ---
 
 ## **4. Hypothesis Testing**
+
 ---
 
 ## **5. Framing a Prediction Problem**
@@ -35,6 +56,7 @@ Investigating this relationship helps reveal how economic conditions, infrastruc
 ---
 
 ## **6. Baseline Model**
+
 ---
 
 ## **7. Final Model**
