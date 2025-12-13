@@ -128,4 +128,19 @@ The final model achieves a higher F1-score on the same held-out test set used fo
 
 ## **8. Fairness Analysis**
 
+To evaluate whether the final model performs equitably across different economic contexts, I conducted a fairness analysis comparing its performance on outages occurring in low-income versus high-income states. States were grouped using economic quartiles, and the lowest and highest quartiles were compared.
+
+The evaluation metric for this analysis was precision for predicting high-severity outages. Precision is particularly relevant in this setting because incorrectly predicting a severe outage may lead to unnecessary allocation of resources.
+
+A permutation test was used to compare the difference in precision between the two groups. At a significance level of α = 0.05, the resulting p-value indicates that the observed difference in precision is consistent with random variation. As a result, there is insufficient evidence to conclude that the model performs worse for outages in low-income states.
+
+This analysis suggests that, with respect to precision, the model does not exhibit a statistically significant fairness disparity across economic groups. However, this result does not guarantee complete fairness, and additional metrics or alternative group definitions could be explored in future work.
+
+<iframe
+  src="assets/fairness_precision_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ---
