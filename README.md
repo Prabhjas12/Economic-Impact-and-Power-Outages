@@ -38,7 +38,6 @@ Investigating this relationship helps reveal how economic conditions, infrastruc
 ---
 
 ## **7. Final Model**
-Your optimized model with tuned hyperparameters, evaluation metrics, and discussion of performance improvements over the baseline.
 
 ---
 
