@@ -37,13 +37,21 @@ Before conducting any analysis, I cleaned the dataset to convert all numerical v
 
 The distribution of outage duration shows a heavy right-skew: most outages are relatively short, but a small number last for extremely long periods. This behavior is typical for extreme events.
 
-*(Embed your Plotly histogram iframe here)*
+<iframe 
+  src="assets/outage-duration-histogram.html" 
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
 
 ### Bivariate Analysis
 
 To explore the relationship between economic conditions and outage severity, I visualized how outage duration and customers affected vary with state economic output. While the relationship is noisy, higher-income states tend to experience slightly less severe outages.
 
-*(Embed your Plotly scatter or boxplot iframe here)*
+<iframe 
+  src="assets/PC.REALGSP.STATE-vs-final_duration.html" 
+  width="800"
+  height="600"
+  frameborder="0"></iframe>
 
 ### Interesting Aggregates
 
