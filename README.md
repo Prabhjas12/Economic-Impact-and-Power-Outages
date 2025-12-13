@@ -44,6 +44,3 @@ Investigating this relationship helps reveal how economic conditions, infrastruc
 ## **8. Fairness Analysis**
 
 ---
-
-## 📂 **Project Structure**
-
