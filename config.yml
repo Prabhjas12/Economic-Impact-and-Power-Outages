@@ -1,7 +1,18 @@
+title: "US Power Outages and Economic Strength"
+description: "An analysis of outage severity, economic indicators, and structural vulnerabilities (2000–2016)."
 theme: jekyll-theme-cayman
-title: "My DSC 80 Project"
-description: "Analysis of ..."
 
-remote_theme: mmistakes/minimal-mistakes
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Navigation (auto-shows on some themes)
+collections:
+  pages:
+    output: true
+
 plugins:
-  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-seo-tag
+
+
