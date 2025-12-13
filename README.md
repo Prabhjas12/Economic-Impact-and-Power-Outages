@@ -90,6 +90,20 @@ The observed difference in mean customers affected was approximately −12,131, 
 
 ## **5. Framing a Prediction Problem**
 
+The prediction task in this project is to determine whether a power outage will be **high severity**, defined as affecting more than 10,000 customers. This is framed as a binary classification problem, where the objective is to identify outages that are likely to cause widespread disruption.
+
+This task was chosen because classifying outages by severity is more actionable than predicting exact outage duration or customer counts. Early identification of high-impact outages can help utilities and emergency planners prioritize resources, allocate response teams efficiently, and mitigate downstream effects.
+
+The response variable is a binary indicator of outage severity:
+
+- Severe outage: affects more than 10,000 customers  
+- Non-severe outage: affects 10,000 or fewer customers  
+
+Model performance is evaluated using **F1-score**, which balances precision and recall. This metric is more appropriate than accuracy because severe outages are relatively rare, and both false positives and false negatives carry meaningful consequences for planning and response.
+
+Only features that would be known at the start of an outage are used for prediction. These include economic indicators, geographic information, climate region, and outage cause. Variables that describe the outcome of the outage itself are intentionally excluded to ensure a realistic and fair prediction setup.
+
+
 ---
 
 ## **6. Baseline Model**
