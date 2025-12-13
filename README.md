@@ -40,6 +40,12 @@ To explore the relationship between economic conditions and outage severity, I v
 ### Interesting Aggregates
 
 To summarize broader trends, I computed the average outage duration and average customers affected for each economic quartile. These aggregated statistics highlight systematic differences that motivate the hypothesis testing that follows.
+| econ_bin   |   final_duration |   CUSTOMERS.AFFECTED |
+|:-----------|-----------------:|---------------------:|
+| Lowest     |          2995.78 |               127790 |
+| Low        |          3193.23 |               155391 |
+| High       |          1744.5  |               150617 |
+| Highest    |          2608.36 |               139920 |
 
 ---
 
